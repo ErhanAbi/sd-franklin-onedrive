@@ -164,7 +164,7 @@ class ResultsTable extends LitElement {
             <td class="spectrum-Table-cell table-cell-first" tabindex="${idx}">
               <img
                 class="spectrum-Asset-image spectrum-Asset-image--list"
-                src="https://localhost${row.thumbnail}"
+                src="${row.thumbnail}"
                 alt="${row.title}"
               />
               <span class="package-title">${row.title}</span>
