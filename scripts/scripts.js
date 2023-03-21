@@ -12,6 +12,7 @@ import {
   loadBlocks,
   loadCSS,
 } from './lib-franklin.js';
+import { initializeSDPage } from "./structure.js";
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
 window.hlx.RUM_GENERATION = 'project-1'; // add your RUM generation information here
@@ -129,3 +130,4 @@ async function loadPage() {
 }
 
 loadPage();
+initializeSDPage();
