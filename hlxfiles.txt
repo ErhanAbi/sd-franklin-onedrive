@@ -1,0 +1,5 @@
+https://main--sd-franklin-onedrive--erhanabi.hlx.page/general-packages.json
+https://main--sd-franklin-onedrive--erhanabi.hlx.page/general
+https://main--sd-franklin-onedrive--erhanabi.hlx.page/nav
+https://main--sd-franklin-onedrive--erhanabi.hlx.page/footer
+https://main--sd-franklin-onedrive--erhanabi.hlx.page/eulas/oracle-technology-network-license-agreement-for-oracle-java-se
