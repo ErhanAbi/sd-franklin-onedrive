@@ -316,6 +316,7 @@ function getParsedFilters(block) {
       return { label: labelContainer.textContent, options };
     }
   );
+
   return filters;
 }
 

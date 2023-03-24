@@ -69,11 +69,40 @@ export function classListStr(...classes) {
 }
 
 /**
+ * converts 'this is an example' -> 'thisIsAnExample'
+ * @param {string} str
+ */
+export function camelCase(str = "") {
+  return str
+    .split(" ")
+    .map((w) => w.trim())
+    .map((word, idx) =>
+      idx === 0
+        ? word.toLocaleLowerCase()
+        : `${word.slice(0, 1).toLocaleUpperCase()}${word
+            .slice(1)
+            .toLocaleLowerCase()}`
+    )
+    .join("");
+}
+
+/**
+ * converts 'this is an example' -> 'this_is_an_example'
+ * @param {string} str
+ */
+export function snakeCase(str = "") {
+  return str
+    .split(" ")
+    .map((word) => word.trim().toLocaleLowerCase())
+    .join("_");
+}
+
+/**
  * "This string Is Transformed" -> "this_string_is_transformed"
  * @param {string} str
  */
 export function stringToKey(str) {
-  return str.toLowerCase().replace(" ", "_");
+  return camelCase(str);
 }
 
 function addSpectrum() {
