@@ -37,7 +37,7 @@ class Dialog extends LitElement {
     this.querySelector(".spectrum-Modal-wrapper").classList.add("is-open");
     this.querySelector(".spectrum-Modal").classList.add("is-open");
     document.body.style.overflow = "hidden";
-    console.log(this.packageDetails);
+    this._showTab("details");
   }
 
   close() {
@@ -127,12 +127,14 @@ class Dialog extends LitElement {
     _showTooltip();
   };
 
-  _handleTabClick = (ev) => {
-    const element = ev.target.closest("[data-tab]");
-    const tabName = element.dataset.tab;
+  _showTab(tabName) {
     const tab = this.querySelector(
       `.spectrum-Tabs-item[data-tab="${tabName}"]`
     );
+    if (!tab) {
+      return;
+    }
+
     const tabContent = this.querySelector(
       `.spectrum-TabView-body[data-tab="${tabName}"]`
     );
@@ -154,6 +156,14 @@ class Dialog extends LitElement {
 
     selectionIndicator.style.transform = `translateX(${tab.offsetLeft}px)`;
     selectionIndicator.style.width = `${tab.offsetWidth}px`;
+  }
+
+  _handleTabClick = (ev) => {
+    const element = ev.target.closest("[data-tab]");
+    if (!element) {
+      return;
+    }
+    this._showTab(element.dataset.tab);
   };
 
   _renderModalContents() {
