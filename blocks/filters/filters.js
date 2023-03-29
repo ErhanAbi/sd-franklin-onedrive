@@ -2,7 +2,7 @@ import {
   LitElement,
   html,
   render,
-} from "../../scripts/vendor/lit@2.6.1.min.js";
+} from "../../scripts/vendor/lit-all_v2.6.1.min.js";
 import { classListStr, stringToKey } from "../../scripts/utils/stringUtils.js";
 
 class SDFilters extends LitElement {

@@ -2,7 +2,7 @@ import {
   LitElement,
   html,
   unsafeHTML,
-} from "../../scripts/vendor/lit@2.6.1.min.js";
+} from "../../scripts/vendor/lit-all_v2.6.1.min.js";
 
 class Dialog extends LitElement {
   static properties = {
