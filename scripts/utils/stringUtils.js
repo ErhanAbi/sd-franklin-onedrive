@@ -31,9 +31,16 @@ export function classList(...classes) {
       }
     });
 
-  cssClasses.toString = () => cssClasses.join(" ");
-
   return cssClasses;
+}
+
+/**
+ * like classList, but returns a string
+ * @param  {...any} classes
+ * @returns string
+ */
+export function classListStr(...classes) {
+  return classList(...classes).join(" ");
 }
 
 /**

@@ -1,6 +1,9 @@
-import { LitElement, html, render } from "/scripts/vendor/lit@2.6.1.min.js";
-
-import { classList, stringToKey } from "/scripts/structure.js";
+import {
+  LitElement,
+  html,
+  render,
+} from "../../scripts/vendor/lit@2.6.1.min.js";
+import { classListStr, stringToKey } from "../../scripts/utils/stringUtils.js";
 
 class SDFilters extends LitElement {
   static properties = {
@@ -151,7 +154,7 @@ class SDFilters extends LitElement {
           </div>
           <button
             type="reset"
-            class="${classList(
+            class="${classListStr(
               "spectrum-ClearButton spectrum-ClearButton--sizeM spectrum-Search-clearButton",
               { hidden: !Boolean(this._searchTerm) }
             )}"
@@ -178,7 +181,7 @@ class SDFilters extends LitElement {
         </h4>
         <button
           type="reset"
-          class="${classList(
+          class="${classListStr(
             "spectrum-Button spectrum-Button--primary spectrum-Button--sizeS spectrum-Button--outline",
             { hidden: !this._hasFilters() }
           )}"
@@ -198,7 +201,7 @@ class SDFilters extends LitElement {
             >${currentFilter.label}</label
           >
           <button
-            class="${classList("spectrum-Picker spectrum-Picker--sizeM", {
+            class="${classListStr("spectrum-Picker spectrum-Picker--sizeM", {
               "is-open": this._openFilter === filterId,
             })}"
             aria-haspopup="listbox"
@@ -224,7 +227,7 @@ class SDFilters extends LitElement {
             </svg>
           </button>
           <div
-            class=${classList(
+            class=${classListStr(
               "spectrum-Popover spectrum-Popover--bottom spectrum-Picker-popover",
               { "is-open": this._openFilter === filterId }
             )}
@@ -233,14 +236,15 @@ class SDFilters extends LitElement {
               ${currentFilter.options.map((option, index) => {
                 if (index === 0) {
                   return html`<li
-                      class="${classList("spectrum-Menu-item", {
+                      class="${classListStr("spectrum-Menu-item", {
                         "is-selected":
                           currentDropdownSelection[filterId] === option,
                       })}"
                       role="option"
-                      aria-selected="${classList({
-                        true: currentDropdownSelection[filterId] === option,
-                      })}"
+                      aria-selected="${currentDropdownSelection[filterId] ===
+                      option
+                        ? "true"
+                        : "false"}"
                       tabindex=${index}
                       @click=${() =>
                         this._handleDropdownSelection(filterId, option)}
@@ -261,14 +265,14 @@ class SDFilters extends LitElement {
                 }
 
                 return html`<li
-                  class="${classList("spectrum-Menu-item", {
+                  class="${classListStr("spectrum-Menu-item", {
                     "is-selected":
                       currentDropdownSelection[filterId] === option,
                   })}"
                   role="option"
-                  aria-selected="${classList({
-                    true: currentDropdownSelection[filterId] === option,
-                  })}"
+                  aria-selected="${currentDropdownSelection[filterId] === option
+                    ? "true"
+                    : "false"}"
                   tabindex=${index}
                   @click=${() =>
                     this._handleDropdownSelection(filterId, option)}

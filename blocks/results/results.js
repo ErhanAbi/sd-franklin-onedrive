@@ -1,6 +1,9 @@
-import { LitElement, html, render } from "/scripts/vendor/lit@2.6.1.min.js";
-
-import { classList, stringToKey } from "/scripts/libs/utils/stringUtils.js";
+import {
+  LitElement,
+  html,
+  render,
+} from "../../scripts/vendor/lit@2.6.1.min.js";
+import { classListStr, stringToKey } from "../../scripts/utils/stringUtils.js";
 import { ResultsController } from "./results.ctrl.js";
 
 class ResultsTable extends LitElement {
@@ -61,7 +64,6 @@ class ResultsTable extends LitElement {
   }
 
   _getFilteredResults() {
-    console.log(this._filters.selectedOptions);
     const results = this._getData()
       .filter((row) => {
         if (!Boolean(this._filters.searchTerm)) {
@@ -144,7 +146,7 @@ class ResultsTable extends LitElement {
           <tr>
             ${this.columns.map((column) => {
               return html`<th
-                class="${classList(
+                class="${classListStr(
                   "spectrum-Table-headCell is-sortable",
                   stringToKey(column),
                   {

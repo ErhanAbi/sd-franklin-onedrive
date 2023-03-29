@@ -1,4 +1,8 @@
-import { LitElement, html, unsafeHTML } from "/scripts/vendor/lit@2.6.1.min.js";
+import {
+  LitElement,
+  html,
+  unsafeHTML,
+} from "../../scripts/vendor/lit@2.6.1.min.js";
 
 class Dialog extends LitElement {
   static properties = {

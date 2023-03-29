@@ -6,5 +6,5 @@ sampleRUM("cwv");
 
 // add more delayed functionality here
 // add more delayed functionality here
-import "./libs/unifiedShell/runtime-loader.js";
-import "./libs/unifiedShell/ushell-runtime-manager.js";
+import "./unifiedShell/runtime-loader.js";
+import "./unifiedShell/ushell-runtime-manager.js";
