@@ -1,10 +1,6 @@
-import {
-  LitElement,
-  html,
-  render,
-} from "https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js";
+import { LitElement, html, render } from "/scripts/vendor/lit@2.6.1.min.js";
 
-import { classListStr, stringToKey } from "/scripts/structure.js";
+import { classList, stringToKey } from "/scripts/libs/utils/stringUtils.js";
 import { ResultsController } from "./results.ctrl.js";
 
 class ResultsTable extends LitElement {
@@ -120,6 +116,17 @@ class ResultsTable extends LitElement {
     return sortedData;
   }
 
+  _handleRowClick = (ev) => {
+    const row = ev.currentTarget.closest("tr");
+    const packageName = row.dataset.packageName;
+    const softwarePackage = this._getData().find(
+      (pkg) => pkg.packageName.toLowerCase() === packageName.toLowerCase()
+    );
+    const dialog = document.querySelector("sd-dialog");
+    dialog.setPackageDetails(softwarePackage);
+    dialog.open();
+  };
+
   render() {
     const sortedCol =
       this._sortedCol || stringToKey(this.columns[this.columns.length - 1]);
@@ -137,7 +144,7 @@ class ResultsTable extends LitElement {
           <tr>
             ${this.columns.map((column) => {
               return html`<th
-                class="${classListStr(
+                class="${classList(
                   "spectrum-Table-headCell is-sortable",
                   stringToKey(column),
                   {
@@ -179,7 +186,11 @@ class ResultsTable extends LitElement {
         </thead>
         <tbody class="spectrum-Table-body">
           ${results.map((row, idx) => {
-            return html`<tr class="spectrum-Table-row">
+            return html`<tr
+              class="spectrum-Table-row"
+              data-package-name="${row.packageName}"
+              @click=${this._handleRowClick}
+            >
               <td
                 class="spectrum-Table-cell table-cell-first"
                 tabindex="${idx}"

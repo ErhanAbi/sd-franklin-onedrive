@@ -1,9 +1,21 @@
-header.header-wrapper {
+.hidden {
   display: none;
 }
 
-footer.footer-wrapper {
-  display: none;
+.textfieldlike {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border: 1px solid;
+  border-radius: var(--spectrum-global-dimension-size-50);
+  border-color: var(--spectrum-global-color-gray-300);
+  padding: var(--spectrum-global-dimension-size-40)
+    var(--spectrum-global-dimension-size-150)
+    var(--spectrum-global-dimension-size-65)
+    var(--spectrum-global-dimension-size-150);
+
+  overflow: hidden;
+  overflow-y: auto;
 }
 
 body.spectrum {
@@ -11,20 +23,24 @@ body.spectrum {
   min-height: 100vh;
 }
 
-body main {
+.downloads header.header-wrapper {
+  display: none;
+}
+
+.downloads footer.footer-wrapper {
+  display: none;
+}
+
+body.downloads main {
   min-height: 100vh;
 
   display: grid;
+  grid-template-rows: auto;
   grid-template-columns: 17rem auto;
   grid-template-areas: "filters main";
-
-  /* justify-content: center;
-  align-items: flex-start;
-  flex-flow: row nowrap; */
-  /* gap: 10px; */
 }
 
-.filters-container {
+.downloads .filters-container {
   position: fixed;
   top: 0;
   left: 0;
@@ -34,11 +50,11 @@ body main {
   border-right: 1px solid var(--spectrum-global-color-gray-50);
 }
 
-.results-container {
+.downloads .results-container {
   grid-area: main;
   margin: 1.5rem;
 }
 
-.hidden {
-  display: none;
+.downloads .dialog-container {
+  grid-area: 2 / 1 / 3 / 3;
 }

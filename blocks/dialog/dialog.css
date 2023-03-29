@@ -1,0 +1,155 @@
+.spectrum-Modal {
+  position: absolute;
+  top: 80px;
+  width: 70%;
+  max-width: 900px;
+}
+
+.spectrum-Modal .spectrum-Dialog {
+  width: 100%;
+}
+.spectrum-Modal .spectrum-Dialog-content {
+  padding: 0 8px 0;
+  position: relative;
+}
+
+.spectrum-Modal .spectrum-TabView-body {
+  margin-top: 16px;
+  width: 100%;
+}
+.spectrum-Modal .spectrum-Tabs {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.tabs-content {
+  display: flex;
+  min-height: 384px;
+  max-height: 480px;
+}
+
+.spectrum-Dialog,
+.spectrum-Dialog > *,
+.spectrum-Modal .spectrum-Tabs {
+  background-color: var(--spectrum-global-color-gray-50);
+}
+
+.spectrum-ButtonGroup.spectrum-Dialog-footer {
+  justify-content: space-between;
+}
+
+.sd-PackageFooterSection {
+  padding-left: 0;
+}
+.sd-PackageFooter {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sd-PackageFooter-Actions {
+  display: flex;
+  gap: 4px;
+}
+
+.spectrum-AcceptEULA {
+  display: flex;
+  position: relative;
+}
+.spectrum-AcceptEULA .spectrum-Link {
+  margin-top: 6px;
+}
+
+.spectrum-Tooltip--eulaWarning {
+  max-width: 220px;
+}
+
+.spectrum-Button--share {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.spectrum-Tooltip--share {
+  position: absolute;
+  left: auto;
+  top: -100%;
+  width: -moz-max-content;
+  width: -webkit-max-content;
+}
+
+.spectrum-Dialog-footer > .spectrum-ButtonGroup > * {
+  margin: 8px;
+}
+
+.spectrum-Dialog-content {
+  padding: 16px 8px 0;
+}
+
+.tabs-content {
+  display: flex;
+  min-height: 384px;
+}
+
+.spectrum-Details {
+  overflow: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.spectrum-TabView-body {
+  display: flex;
+}
+.spectrum-TabView-body.hidden {
+  display: none;
+}
+
+.spectrum-DetailsInfo {
+  flex: 1;
+}
+
+#dialog-tab-panels .spectrum-DetailsInfo {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 1rem;
+  align-content: start;
+  align-items: start;
+  justify-items: start;
+}
+
+.spectrum-DetailsInfo dt {
+  min-width: 100px;
+  width: auto;
+  margin: 0;
+}
+
+.spectrum-DetailsInfo dd {
+  grid-column: 2 / -1;
+  margin: 0;
+}
+
+.spectrum-DetailsPicture--image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 208px;
+  height: 175px;
+  border-radius: 4px;
+
+  background: var(--spectrum-global-color-gray-100);
+}
+
+.spectrum-DetailsPicture--image > .spectrum-Asset-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 4px;
+  mix-blend-mode: revert;
+}
