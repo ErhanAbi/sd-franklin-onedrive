@@ -193,10 +193,7 @@ class ResultsTable extends LitElement {
               data-package-name="${row.packageName}"
               @click=${this._handleRowClick}
             >
-              <td
-                class="spectrum-Table-cell table-cell-first"
-                tabindex="${idx}"
-              >
+              <td class="spectrum-Table-cell table-cell-first">
                 <img
                   class="spectrum-Asset-image spectrum-Asset-image--list"
                   src="/icons/thumbnails/${row.icon}"
@@ -204,11 +201,9 @@ class ResultsTable extends LitElement {
                 />
                 <span class="package-name">${row.packageName}</span>
               </td>
-              <td class="spectrum-Table-cell" tabindex="${idx}">${row.size}</td>
-              <td class="spectrum-Table-cell" tabindex="${idx}">
-                ${row.softwareType}
-              </td>
-              <td class="spectrum-Table-cell" tabindex="${idx}">
+              <td class="spectrum-Table-cell">${row.size}</td>
+              <td class="spectrum-Table-cell">${row.softwareType}</td>
+              <td class="spectrum-Table-cell">
                 ${ResultsTable.dateFormatter.format(row.datePublished)}
               </td>
             </tr>`;

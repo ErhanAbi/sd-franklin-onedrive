@@ -65,6 +65,7 @@ function decorateBlock(block) {
     <div class="action action-previous">
       <button
         class="spectrum-ActionButton spectrum-ActionButton--sizeM spectrum-ActionButton--quiet"
+        title="Previous"
       >
         <svg
           class="spectrum-Icon spectrum-Icon--sizeM spectrum-ActionButton-icon"
@@ -85,6 +86,7 @@ function decorateBlock(block) {
     <div class="action action-next">
       <button
         class="spectrum-ActionButton spectrum-ActionButton--sizeM spectrum-ActionButton--quiet"
+        title="Next"
       >
         <svg
           class="spectrum-Icon spectrum-Icon--sizeM spectrum-ActionButton-icon"
@@ -101,14 +103,17 @@ function decorateBlock(block) {
     </div>
     <ol class="indicators">
       ${innerBlocks.map(
-        () =>
+        (_, index) =>
           html`<li class="indicator indicator--active">
             <button
               class="indicator-btn spectrum-ActionButton spectrum-ActionButton--sizeS spectrum-ActionButton--quiet"
+              title="Carousel item ${index + 1}"
             >
               <svg
                 class="spectrum-Icon spectrum-Icon--sizeS"
                 viewBox="0 0 18 18"
+                focusable="false"
+                aria-hidden="true"
               >
                 <circle cx="9" cy="9" r="8"></circle>
               </svg>
