@@ -2,9 +2,8 @@ import {
   LitElement,
   html,
   render,
-} from "https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js";
-
-import { classListStr, stringToKey } from "/scripts/structure.js";
+} from "../../scripts/vendor/lit@2.6.1.min.js";
+import { classListStr, stringToKey } from "../../scripts/utils/stringUtils.js";
 
 class SDFilters extends LitElement {
   static properties = {
@@ -242,9 +241,10 @@ class SDFilters extends LitElement {
                           currentDropdownSelection[filterId] === option,
                       })}"
                       role="option"
-                      aria-selected="${classListStr({
-                        true: currentDropdownSelection[filterId] === option,
-                      })}"
+                      aria-selected="${currentDropdownSelection[filterId] ===
+                      option
+                        ? "true"
+                        : "false"}"
                       tabindex=${index}
                       @click=${() =>
                         this._handleDropdownSelection(filterId, option)}
@@ -270,9 +270,9 @@ class SDFilters extends LitElement {
                       currentDropdownSelection[filterId] === option,
                   })}"
                   role="option"
-                  aria-selected="${classListStr({
-                    true: currentDropdownSelection[filterId] === option,
-                  })}"
+                  aria-selected="${currentDropdownSelection[filterId] === option
+                    ? "true"
+                    : "false"}"
                   tabindex=${index}
                   @click=${() =>
                     this._handleDropdownSelection(filterId, option)}

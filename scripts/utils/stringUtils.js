@@ -1,29 +1,4 @@
 /**
- * Convert string to html collection
- * @param {string[]} strings
- * @param  {...any} values
- * @returns Element|HTMLCollection
- */
-export function tpl(strings, ...values) {
-  const transformedValues = values.map((value) => {
-    if (Array.isArray(value)) {
-      return value.join(``);
-    }
-    if (typeof value[Symbol.iterator] === "function") {
-      return [...value].join("");
-    }
-  });
-  const htmlString = String.raw({ raw: strings }, ...transformedValues);
-  const div = document.createElement("div");
-  div.innerHTML = htmlString;
-  if (div.childElementCount > 1) {
-    return div.children;
-  }
-
-  return div.children[0];
-}
-
-/**
  * transform css classes
  *
  * classList('first second', 'third', ['fourth','fifth'], {sixth: true, seventh: false})
@@ -60,7 +35,7 @@ export function classList(...classes) {
 }
 
 /**
- *
+ * like classList, but returns a string
  * @param  {...any} classes
  * @returns string
  */
@@ -103,16 +78,4 @@ export function snakeCase(str = "") {
  */
 export function stringToKey(str) {
   return camelCase(str);
-}
-
-function addSpectrum() {
-  document.body.classList.add(
-    ...classList("spectrum spectrum--medium spectrum--light")
-  );
-  document.querySelector("html").setAttribute("dir", "ltr");
-  document.querySelector("html").setAttribute("lang", "en");
-}
-
-export function initializeSDPage() {
-  addSpectrum();
 }

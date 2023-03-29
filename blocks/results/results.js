@@ -2,9 +2,8 @@ import {
   LitElement,
   html,
   render,
-} from "https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js";
-
-import { classListStr, stringToKey } from "/scripts/structure.js";
+} from "../../scripts/vendor/lit@2.6.1.min.js";
+import { classListStr, stringToKey } from "../../scripts/utils/stringUtils.js";
 import { ResultsController } from "./results.ctrl.js";
 
 class ResultsTable extends LitElement {
@@ -65,7 +64,6 @@ class ResultsTable extends LitElement {
   }
 
   _getFilteredResults() {
-    console.log(this._filters.selectedOptions);
     const results = this._getData()
       .filter((row) => {
         if (!Boolean(this._filters.searchTerm)) {
@@ -119,6 +117,17 @@ class ResultsTable extends LitElement {
 
     return sortedData;
   }
+
+  _handleRowClick = (ev) => {
+    const row = ev.currentTarget.closest("tr");
+    const packageName = row.dataset.packageName;
+    const softwarePackage = this._getData().find(
+      (pkg) => pkg.packageName.toLowerCase() === packageName.toLowerCase()
+    );
+    const dialog = document.querySelector("sd-dialog");
+    dialog.setPackageDetails(softwarePackage);
+    dialog.open();
+  };
 
   render() {
     const sortedCol =
@@ -179,7 +188,11 @@ class ResultsTable extends LitElement {
         </thead>
         <tbody class="spectrum-Table-body">
           ${results.map((row, idx) => {
-            return html`<tr class="spectrum-Table-row">
+            return html`<tr
+              class="spectrum-Table-row"
+              data-package-name="${row.packageName}"
+              @click=${this._handleRowClick}
+            >
               <td
                 class="spectrum-Table-cell table-cell-first"
                 tabindex="${idx}"

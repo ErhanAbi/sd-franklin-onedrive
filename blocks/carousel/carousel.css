@@ -75,6 +75,10 @@
   overflow-y: auto;
 
   scroll-snap-type: x mandatory;
+
+  /* hidden scroll */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 .carousel-items::-webkit-scrollbar {
   display: none;
